@@ -1,4 +1,4 @@
-# 
+#
 # 	Copyright 2008, 2009 Michel Pollet <buserror@gmail.com>
 #	Copyright 2013 Michael Hughes <squirmyworms@embarqmail.com>
 #
@@ -20,21 +20,19 @@
 target=	FIGsimavr
 #firm_src = ${wildcard at*${board}.c}
 #firmware = ${firm_src:.c=.axf}
-simavr = ../../
+simavr = ../simavr
 
-IPATH = .
+PARTS = ../simavr_board_parts
+
 IPATH += ./include
-#VPATH += ./source
-IPATH += ../parts
+IPATH += ${PARTS}
 IPATH += ${simavr}/include
 IPATH += ${simavr}/simavr/sim
 
-VPATH = .
 VPATH += ./source
-VPATH += ../parts
-VPATH += ../parts/dtime
-VPATH += ../parts/spi_sram
-VPATH += ../parts/spi_flash
+VPATH += ${PARTS}/dtime
+VPATH += ${PARTS}/spi_sram
+VPATH += ${PARTS}/spi_flash
 
 LDFLAGS += -lpthread
 LDFLAGS += -lSDL
